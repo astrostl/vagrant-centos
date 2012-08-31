@@ -48,8 +48,8 @@ EOF
 /bin/chmod 700 /home/vagrant/.ssh
 /usr/bin/curl -o /home/vagrant/.ssh/id_rsa https://raw.github.com/mitchellh/vagrant/master/keys/vagrant
 /usr/bin/curl -o /home/vagrant/.ssh/authorized_keys https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub
-/bin/chown -R vagrant:vagrant /home/vagrant
-/bin/chmod 0400 /home/vagrant/*
+/bin/chown -R vagrant:vagrant /home/vagrant/.ssh
+/bin/chmod 0400 /home/vagrant/.ssh/*
 /bin/echo 'UseDNS no' >> /etc/ssh/sshd_config
 /usr/bin/yum clean all
 %end
