@@ -1,13 +1,4 @@
 #!/bin/bash
-basebox='vagrant-centos-6-3'
-home='/Users/astrostl'
-osiso="${home}/Downloads/CentOS-6.3-x86_64-minimal.iso"
-guestiso='/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso'
-
-vboxbase="${home}/VirtualBox VMs"
-hddbase="${vboxbase}/${basebox}/${basebox}"
-hddfile="${hddbase}.vdi"
-
 checkdir() { [[ ! -d "$1" ]] && { echo "ERROR: missing $1 directory!"; exit 1; } }
 checkiso() { [[ ! -e "$1" ]] && { echo "ERROR: missing ${1} file!"; exit 1; } }
 
