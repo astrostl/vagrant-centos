@@ -15,9 +15,9 @@ Create your own minimal CentOS Base Box for Vagrant in a few simple steps:
 7. run `VBoxManage modifyvm "$basebox" --memory 360` to take the VM's memory down to 360MB (3)
 8. run `vagrant package --base "$basebox" --output "${basebox}.box"`
 
-(1) you might want to change the time zone from USA/Chicago too<br>
+(1) you might want to change the time zone from 'USA/Chicago' too<br>
 (2) the defaults use my Github username, and the file paths are for Mac OS X<br>
-(3) the Vagrant docs suggest this amount, but RHEL won't start with it<br>
+(3) doc-suggested distribution standard. CentOS needs more to install, but runs fine with it once installed.<br>
 
 That's it!
 
