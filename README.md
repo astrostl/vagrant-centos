@@ -29,4 +29,4 @@ The Kickstart: doc-modeled again, although there are some contextual adjustments
 * SELinux is disabled (you're welcome!)
 * It uses LVM, so you can play with the partition if you want
 * It uses the RHEL-style 'wheel' group instead of the Ubuntu-style 'admin' group
-* The only packages added are those required to install the guest additions  
+* Each added package is strictly necessary (sudo, gems, guest addition and Chef build dependencies)
