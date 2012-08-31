@@ -20,7 +20,7 @@ Create your own minimal CentOS Base Box for Vagrant in a few simple steps:
 (3) doc-suggested distribution standard. CentOS needs more to install, but runs fine with it once installed.<br>
 (4) note that box-default memory sizes can be overridden in a Vagrantfile
 
-That's it!
+That's it!  And you can see exactly what it does, and adjust it to your tastes.
 
 The VM: modeled according to the Vagrant doc requirements, similar to a GUI-created one.
 
