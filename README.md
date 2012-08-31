@@ -12,8 +12,9 @@ Create your own minimal CentOS Base Box for Vagrant in a few simple steps:
 4. run `bash vagrant-centos-basebox` to create a clean VM
 5. start the VM, hit TAB at the first prompt, and append `ks=http://yourwebserver/vagrant-centos-basebox.ks`
 6. wait for the VM to complete its Kickstart installation and shut down
-7. run `VBoxManage modifyvm "$basebox" --memory 360` to take the VM's memory down to 360MB (3)(4)
-8. run `vagrant package --base "$basebox" --output "${basebox}.box"`
+7. run `basebox=vagrant-centos-6-3` (named/numbered as appropriate)
+8. run `VBoxManage modifyvm "$basebox" --memory 360` to take the VM's memory down to 360MB (3)(4)
+9. run `vagrant package --base "$basebox" --output "${basebox}.box"`
 
 (1) you might want to change the time zone from 'USA/Chicago' too<br>
 (2) the defaults use my Github username, and the file paths are for Mac OS X<br>
