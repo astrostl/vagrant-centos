@@ -1,7 +1,7 @@
 vagrant-centos
 ==============
 
-Want a CentOS base box?  Don't want a not-so-fresh feeling about downloading one?<br>
+Want a CentOS Base Box?  Don't want a not-so-fresh feeling about downloading one?<br>
 Want to maybe learn a bit more about Vagrant, VirtualBox, and Kickstart?
 
 Create your own minimal CentOS Base Box for Vagrant in a few simple steps:
