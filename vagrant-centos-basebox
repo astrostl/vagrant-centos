@@ -1,0 +1,29 @@
+#!/bin/bash
+basebox='vagrant-centos-6-3'
+home='/Users/astrostl'
+osiso="${home}/Downloads/CentOS-6.3-x86_64-minimal.iso"
+guestiso='/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso'
+
+vboxbase="${home}/VirtualBox VMs"
+hddbase="${vboxbase}/${basebox}/${basebox}"
+hddfile="${hddbase}.vdi"
+
+checkdir() { [[ ! -d "$1" ]] && { echo "ERROR: missing $1 directory!"; exit 1; } }
+checkiso() { [[ ! -e "$1" ]] && { echo "ERROR: missing ${1} file!"; exit 1; } }
+
+checkdir "$home"
+checkdir "$vboxbase"
+checkiso "$osiso"
+checkiso "$guestiso"
+
+VBoxManage -v &> /dev/null || { echo "ERROR: VBoxManage binary not in path!"; exit 1; }
+
+VBoxManage createvm --name "$basebox" --register
+VBoxManage modifyvm "$basebox" --ostype RedHat_64 --memory 1024 --vram 12 --rtcuseutc on --ioapic on
+VBoxManage storagectl "$basebox" --name ide0 --add ide
+VBoxManage storageattach "$basebox" --storagectl ide0 --device 0 --port 0 --type dvddrive --medium "$osiso"
+VBoxManage storageattach "$basebox" --storagectl ide0 --device 0 --port 1 --type dvddrive --medium "$guestiso"
+VBoxManage storagectl "$basebox" --name sata0 --add sata --sataportcount 1
+VBoxManage createhd --filename "$hddbase" --size 40960
+VBoxManage storageattach "$basebox" --storagectl sata0 --port 0 --type hdd --medium "$hddfile"
+VBoxManage modifyvm "$basebox" --nic1 nat
