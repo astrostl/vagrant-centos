@@ -18,7 +18,7 @@ Create your own minimal CentOS base box for Vagrant in a few simple steps:
 That's it!  And you can see exactly what is done, and adjust it to your tastes.
 
 Precious few variations from the docs:
-* 512MB of RAM, not 360MB - CentOS needs more to install, Vagrant's example box is 512MB, 512MB seems less weird to me
+* 512MB of RAM instead of 360MB. CentOS needs it to install, and Vagrant's own boxes uses 512MB.
 * the docs have no guidelines about swap, so I went with 1GB
 * it uses LVM, so you can play with the partitions if you want
 * the firewall is disabled (this probably isn't production...)
