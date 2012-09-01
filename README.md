@@ -1,27 +1,19 @@
 vagrant-centos-basebox
 ==============
 
-Want a CentOS base box for Vagrant?  Don't want a not-so-fresh feeling about downloading an untrusted one?<br>
-Want to maybe learn a bit more about Vagrant, VirtualBox, and Kickstart?
+Want a CentOS base box for Vagrant?  Don't want a not-so-fresh feeling about downloading an untrusted one?
 
 Create your own minimal CentOS base box for Vagrant in a few simple steps:
 
-1. download a CentOS minimal installation ISO from your favorite mirror
+1. download a CentOS minimal ISO from your favorite mirror
 2. host the 'vagrant-centos-basebox.ks' Kickstart script on a web server (1)
-3. run `bash vagrant-centos-basebox 6 3` (example for CentOS 6.3) to create a clean VM
+3. run `bash vagrant-centos-basebox 6 3` (example for CentOS 6.3) to create and start the VM (2)
 4. hit TAB at the CentOS menu, append ` ks=http://webserver/vagrant-centos-basebox.ks`, and hit ENTER
 5. run `vagrant package --base "$vc_basebox" --output "${vc_basebox}.box"` after shutdown to package
 
-(1) you might want to change the time zone from 'America/Chicago' too<br>
-(2) the default variables assume Mac OS X locations for the downloaded ISO and VirtualBox guest additions<br>
+(1) it defaults to the 'America/Chicago' time zone, which you can edit here or change with a provisioner<br>
+(2) the CentOS and guest additions ISO locations are specified in variables, and default to a Mac OS X layout
 
-That's it!  And you can see exactly what is done, and adjust it to your tastes.
+That's it!  As-is, it only installs packages which are explicitly necessary for Vagrant, VirtualBox, and Puppet/Chef.
 
-Precious few variations from the docs:
-* the VM is 64-bit. You can change this in the script, but I think CentOS 32-bit will install.
-* 512MB of RAM, not 360MB. CentOS needs > 360MB to install, and Vagrant's own example box uses 512MB.
-* the docs have no guidelines about swap, so I went with 1GB
-* it uses LVM, so you can play with the partitions if you want
-* the firewall is disabled (do you want a firewall on a Vagrant VM?)
-* it uses the RHEL-standard 'wheel' group instead of the Ubuntu-standard 'admin' group
-* SELinux is disabled (you're welcome!)
+Notes: 64-bit VM, 512MB of RAM, 1GB of swap, LVM partitions, 'wheel' group, no firewall, no SELinux (you're welcome!)
