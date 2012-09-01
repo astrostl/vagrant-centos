@@ -29,3 +29,5 @@ VBoxManage createhd --filename "$vc_hddbase" --size 40960
 VBoxManage storageattach "$vc_basebox" --storagectl sata0 --port 0 --type hdd --medium "$vc_hddfile"
 VBoxManage modifyvm "$vc_basebox" --nic1 nat
 VBoxManage startvm "$vc_basebox"
+
+echo "run 'vagrant package --base $vc_basebox --output ${vc_basebox}.box' after shutdown to package"
