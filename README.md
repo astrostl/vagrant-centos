@@ -19,7 +19,7 @@ That's it!  And you can see exactly what is done, and adjust it to your tastes.
 
 Precious few variations from the docs:
 * the VM is 64-bit. You can change this in the script, but I think CentOS 32-bit will install.
-* 512MB of RAM instead of 360MB. CentOS needs > 360MB to install, and Vagrant's own boxes uses 512MB.
+* 512MB of RAM, not 360MB. CentOS needs > 360MB to install, and Vagrant's own example box uses 512MB.
 * the docs have no guidelines about swap, so I went with 1GB
 * it uses LVM, so you can play with the partitions if you want
 * the firewall is disabled (this probably isn't production...)
