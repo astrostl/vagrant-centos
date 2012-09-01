@@ -19,15 +19,15 @@ Create your own minimal CentOS Base Box for Vagrant in a few simple steps:
 (1) you might want to change the time zone from 'USA/Chicago' too<br>
 (2) the defaults use my Github username, and the file paths are for Mac OS X<br>
 (3) doc-suggested distribution standard. CentOS needs more to install, but runs fine with it once installed.<br>
-(4) note that box-default memory sizes can be overridden in a Vagrantfile
+(4) I use a custom '~/.vagrant.d/Vagrantfile' to give all boxes 1GB and run a common Puppet manifest
 
-That's it!  And you can see exactly what it does, and adjust it to your tastes.
+That's it!  And you can see exactly what is done, and adjust it to your tastes.
 
-The VM: modeled according to the Vagrant doc requirements, similar to a GUI-created one.
+The VM starts with the same defaults as a GUI-created VM, modeled according to the docs
 
-The Kickstart: doc-modeled again, although there are some contextual adjustments.
-* The firewall is disabled (do you want one interfering on a Vagrant VM?)
+The Kickstart script is also doc-modeled, although there are some minor/contextual adjustments
+* It has a 1GB swap partition - the docs don't say anything about swap
+* It uses LVM, so you can play with the partitions if you want
+* The firewall is disabled (do you want a firewall interfering on a Vagrant VM?)
 * SELinux is disabled (you're welcome!)
-* It uses LVM, so you can play with the partition if you want
-* It uses the RHEL-style 'wheel' group instead of the Ubuntu-style 'admin' group
-* Each added package is strictly necessary (sudo, gems, guest addition and Chef build dependencies)
+* It uses the RHEL-standard 'wheel' group instead of the Ubuntu-standard 'admin' group
