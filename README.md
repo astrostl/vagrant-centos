@@ -19,7 +19,7 @@ Create your own minimal CentOS Base Box for Vagrant in a few simple steps:
 (1) you might want to change the time zone from 'USA/Chicago' too<br>
 (2) the defaults use my Github username, and the file paths are for Mac OS X<br>
 (3) doc-suggested distribution standard. CentOS needs more to install, but runs fine with it once installed.<br>
-(4) I use a custom '~/.vagrant.d/Vagrantfile' to give all boxes 1GB and run a common Puppet manifest
+(4) I use a custom '~/.vagrant.d/Vagrantfile' to give all boxes 1GB and point to a global Puppet manifest
 
 That's it!  And you can see exactly what is done, and adjust it to your tastes.
 
