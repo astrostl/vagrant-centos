@@ -9,7 +9,7 @@ Create your own minimal CentOS base box for Vagrant in a few simple steps:
 1. download a CentOS minimal installation ISO from your favorite mirror
 2. host the 'vagrant-centos-basebox.ks' Kickstart script on a web server (1)
 3. run `bash vagrant-centos-basebox 6 3` (example for CentOS 6.3) to create a clean VM
-4. start it, hit TAB at the menu, append ` ks=http://webserver/vagrant-centos-basebox.ks`, hit ENTER, and wait for shutdown
+4. hit TAB at the CentOS menu, append ` ks=http://webserver/vagrant-centos-basebox.ks`, hit ENTER, and wait for shutdown
 5. run `vagrant package --base "$vc_basebox" --output "${vc_basebox}.box"`
 
 (1) you might want to change the time zone from 'America/Chicago' too<br>
