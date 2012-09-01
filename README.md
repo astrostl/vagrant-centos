@@ -22,6 +22,6 @@ Precious few variations from the docs:
 * 512MB of RAM, not 360MB. CentOS needs > 360MB to install, and Vagrant's own example box uses 512MB.
 * the docs have no guidelines about swap, so I went with 1GB
 * it uses LVM, so you can play with the partitions if you want
-* the firewall is disabled (this probably isn't production...)
-* SELinux is disabled (you're welcome!)
+* the firewall is disabled (do you want a firewall on a Vagrant VM?)
 * it uses the RHEL-standard 'wheel' group instead of the Ubuntu-standard 'admin' group
+* SELinux is disabled (you're welcome!)
