@@ -10,7 +10,7 @@ checkiso "$guestiso"
 VBoxManage -v &> /dev/null || { echo "ERROR: VBoxManage binary not in path!"; exit 1; }
 
 VBoxManage createvm --name "$basebox" --register
-VBoxManage modifyvm "$basebox" --ostype RedHat_64 --memory 1024 --vram 12 --rtcuseutc on --ioapic on
+VBoxManage modifyvm "$basebox" --ostype RedHat_64 --memory 512 --vram 12 --rtcuseutc on --ioapic on
 VBoxManage storagectl "$basebox" --name ide0 --add ide
 VBoxManage storageattach "$basebox" --storagectl ide0 --device 0 --port 0 --type dvddrive --medium "$osiso"
 VBoxManage storageattach "$basebox" --storagectl ide0 --device 0 --port 1 --type dvddrive --medium "$guestiso"
