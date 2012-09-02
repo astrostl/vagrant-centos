@@ -1,13 +1,12 @@
 #!/bin/bash
-(( $# < 2 )) && { echo "usage: $0 majorversion minorversion (e.g. $0 6 3)"; exit 1; }
+(( $# < 2 )) && { echo "usage: $0 majorversion minorversion"; exit 1; }
 
-export vc_basebox="vagrant-centos-${1}-${2}"
 vc_osiso="${HOME}/Downloads/CentOS-${1}.${2}-x86_64-minimal.iso"
 vc_guestiso='/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso'
-
 vc_vboxbase="${HOME}/VirtualBox VMs"
 vc_hddbase="${vc_vboxbase}/${vc_basebox}/${vc_basebox}"
 vc_hddfile="${vc_hddbase}.vdi"
+export vc_basebox="vagrant-centos-${1}-${2}"
 
 checkdir() { [[ ! -d "$1" ]] && { echo "ERROR: missing $1 dir!"; exit 1; } }
 checkiso() { [[ ! -e "$1" ]] && { echo "ERROR: missing $1 file!"; exit 1; } }

@@ -16,4 +16,4 @@ Create your own minimal CentOS base box for Vagrant in a few simple steps:
 
 That's it! Tweak away. As-is, it only adds packages which are explicitly necessary for Vagrant, VirtualBox, and Puppet/Chef.
 
-Notes: 64-bit VM, 512MB of RAM, 1GB of swap, LVM partitions, 'wheel' group, no firewall, no SELinux (you're welcome!)
+Notes: 64-bit VM, 512MB of RAM, 1GB of swap, LVM partitions, 'wheel' group, no SELinux (you're welcome!), no firewall
