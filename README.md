@@ -6,8 +6,8 @@ Want a CentOS base box for Vagrant?  Don't want a not-so-fresh feeling about dow
 Create your own minimal CentOS base box for Vagrant in a few simple steps:
 
 1. download a CentOS minimal ISO from your favorite mirror
-2. run `bash vagrant-centos-basebox 6 3` (example for CentOS 6.3) to create and start the VM and WEBrick web server (1)
-3. hit TAB at the CentOS menu, append ` ks=http://HOSTIP:8000/vagrant-centos-basebox.ks`, and hit ENTER (2)
+2. run `bash vagrant-centos-basebox majorversion minorversion` (1) to create and start the VM and WEBrick web server (1)
+3. hit TAB at the CentOS menu, append ` ks=http://HOSTIP:8000/vagrant-centos-basebox.ks` (2), and hit ENTER
 4. CTRL-C the web server and run `vagrant package --base "$vc_basebox" --output "${vc_basebox}.box"` after shutdown to package
 
 (1) the CentOS and guest additions ISO locations are specified in variables, and default to a Mac OS X layout<br>
