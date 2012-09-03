@@ -8,7 +8,7 @@ Create your own minimal CentOS base box for Vagrant in a few simple steps:
 1. download a CentOS minimal ISO from your favorite mirror
 2. run `bash vagrant-centos-basebox majorversion minorversion` (1) to create and start the VM and WEBrick web server
 3. hit TAB at the CentOS menu, append ` ks=http://HOSTIP:8000/vagrant-centos-basebox.ks` (2), and hit ENTER
-4. CTRL-C the web server and run `vagrant package --base "$vc_basebox" --output "${vc_basebox}.box"` after shutdown to package
+4. CTRL-C the web server and follow the prompt after shutdown to package
 
 (1) the CentOS and guest additions ISO locations are specified in variables, and default to a Mac OS X layout<br>
 (2) the Kickstart script defaults to the 'America/Chicago' time zone, which you can edit or override with a provisioner

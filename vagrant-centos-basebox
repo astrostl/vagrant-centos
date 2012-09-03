@@ -6,7 +6,7 @@ vc_guestiso='/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso'
 vc_vboxbase="${HOME}/VirtualBox VMs"
 vc_hddbase="${vc_vboxbase}/${vc_basebox}/${vc_basebox}"
 vc_hddfile="${vc_hddbase}.vdi"
-export vc_basebox="vagrant-centos-${1}-${2}"
+vc_basebox="vagrant-centos-${1}-${2}"
 
 checkdir() { [[ ! -d "$1" ]] && { echo "ERROR: missing $1 dir!"; exit 1; } }
 checkiso() { [[ ! -e "$1" ]] && { echo "ERROR: missing $1 file!"; exit 1; } }
@@ -28,4 +28,7 @@ VBoxManage createhd --filename "$vc_hddbase" --size 40960
 VBoxManage storageattach "$vc_basebox" --storagectl sata0 --port 0 --type hdd --medium "$vc_hddfile"
 VBoxManage modifyvm "$vc_basebox" --nic1 nat
 VBoxManage startvm "$vc_basebox"
+
 ruby -rwebrick -e 's=WEBrick::HTTPServer.new(:Port=>8000,:DocumentRoot=>".");trap("INT") { s.shutdown }; s.start'
+
+echo "run 'vagrant package --base $vc_basebox --output ${vc_basebox}.box' to package"
