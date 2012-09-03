@@ -10,8 +10,8 @@ Create your own minimal CentOS base box for Vagrant in a few simple steps:
 3. hit TAB at the CentOS menu, append ` ks=http://HOSTIP:8000/vagrant-centos-basebox.ks`, and hit ENTER (2)
 4. CTRL-C the web server and run `vagrant package --base "$vc_basebox" --output "${vc_basebox}.box"` after shutdown to package
 
-(1) the CentOS and guest additions ISO locations are specified in variables, and default to a Mac OS X layout
-(2) the Kickstart script defaults to the 'America/Chicago' time zone, which you can edit or override with a provisioner<br>
+(1) the CentOS and guest additions ISO locations are specified in variables, and default to a Mac OS X layout<br>
+(2) the Kickstart script defaults to the 'America/Chicago' time zone, which you can edit or override with a provisioner
 
 That's it! Tweak away. As-is, it only adds packages which are explicitly necessary for Vagrant, VirtualBox, and Puppet/Chef.
 
