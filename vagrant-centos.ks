@@ -51,5 +51,8 @@ EOF
 /bin/chown -R vagrant:vagrant /home/vagrant/.ssh
 /bin/chmod 0400 /home/vagrant/.ssh/*
 /bin/echo 'UseDNS no' >> /etc/ssh/sshd_config
-/usr/bin/yum clean all
+/usr/bin/yum -y clean all
+/bin/dd if=/dev/zero of=/EMPTY bs=1M
+/bin/rm -f /EMPTY
+
 %end
