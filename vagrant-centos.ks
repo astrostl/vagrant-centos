@@ -52,7 +52,10 @@ EOF
 /bin/chmod 0400 /home/vagrant/.ssh/*
 /bin/echo 'UseDNS no' >> /etc/ssh/sshd_config
 /usr/bin/yum -y clean all
+/sbin/swapoff -a
+/sbin/mkswap /dev/mapper/vg_vagrantcentos63-lv_swap
+/bin/dd if=/dev/zero of=/boot/EMPTY bs=1M
+/bin/rm -f /boot/EMPTY
 /bin/dd if=/dev/zero of=/EMPTY bs=1M
 /bin/rm -f /EMPTY
-
 %end
