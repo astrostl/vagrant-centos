@@ -3,7 +3,7 @@ text
 cdrom
 lang en_US.UTF-8
 keyboard us
-network --onboot yes --device eth0 --bootproto dhcp --noipv6 --hostname vagrant-centos-6-4.vagrantup.com
+network --onboot yes --device eth0 --bootproto dhcp --noipv6 --hostname vagrant-centos-6.vagrantup.com
 rootpw vagrant
 firewall --disabled
 authconfig --enableshadow --passalgo=sha512
@@ -13,9 +13,9 @@ zerombr
 clearpart --all
 part /boot --fstype=ext4 --size=512
 part pv.01 --grow --size=1
-volgroup vg_vagrantcentos63 --pesize=4096 pv.01
-logvol swap --name=lv_swap --vgname=vg_vagrantcentos63 --size=1024
-logvol / --fstype=ext4 --name=lv_root --vgname=vg_vagrantcentos63 --grow --size=1
+volgroup vg_vagrantcentos --pesize=4096 pv.01
+logvol swap --name=lv_swap --vgname=vg_vagrantcentos --size=1024
+logvol / --fstype=ext4 --name=lv_root --vgname=vg_vagrantcentos --grow --size=1
 bootloader --location=mbr --append="crashkernel=auto rhgb quiet"
 user --name=vagrant --groups=wheel --password=vagrant
 poweroff --eject
@@ -53,7 +53,7 @@ EOF
 /bin/echo 'UseDNS no' >> /etc/ssh/sshd_config
 /usr/bin/yum -y clean all
 /sbin/swapoff -a
-/sbin/mkswap /dev/mapper/vg_vagrantcentos63-lv_swap
+/sbin/mkswap /dev/mapper/vg_vagrantcentos-lv_swap
 /bin/dd if=/dev/zero of=/boot/EMPTY bs=1M
 /bin/rm -f /boot/EMPTY
 /bin/dd if=/dev/zero of=/EMPTY bs=1M
