@@ -3,7 +3,7 @@ text
 cdrom
 lang en_US.UTF-8
 keyboard us
-network --onboot yes --device eth0 --bootproto dhcp --noipv6 --hostname vagrant-centos-6-3.vagrantup.com
+network --onboot yes --device eth0 --bootproto dhcp --noipv6 --hostname vagrant-centos-6-4.vagrantup.com
 rootpw vagrant
 firewall --disabled
 authconfig --enableshadow --passalgo=sha512
