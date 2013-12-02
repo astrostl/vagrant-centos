@@ -23,7 +23,7 @@ VBoxManage modifyvm "$vc_basebox" --ostype RedHat_64 --memory 512 --vram 12 --rt
 VBoxManage storagectl "$vc_basebox" --name ide0 --add ide
 VBoxManage storageattach "$vc_basebox" --storagectl ide0 --device 0 --port 0 --type dvddrive --medium "$vc_osiso"
 VBoxManage storageattach "$vc_basebox" --storagectl ide0 --device 0 --port 1 --type dvddrive --medium "$vc_guestiso"
-VBoxManage storagectl "$vc_basebox" --name sata0 --add sata --sataportcount 1
+VBoxManage storagectl "$vc_basebox" --name sata0 --add sata --portcount 1
 VBoxManage createhd --filename "$vc_hddbase" --size 40960
 VBoxManage storageattach "$vc_basebox" --storagectl sata0 --port 0 --type hdd --medium "$vc_hddfile"
 VBoxManage modifyvm "$vc_basebox" --nic1 nat
