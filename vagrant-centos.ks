@@ -51,6 +51,7 @@ EOF
 /bin/chown -R vagrant:vagrant /home/vagrant/.ssh
 /bin/chmod 0400 /home/vagrant/.ssh/*
 /bin/echo 'UseDNS no' >> /etc/ssh/sshd_config
+/bin/echo '127.0.0.1   vagrant-centos-6.vagrantup.com' >> /etc/hosts
 /usr/bin/yum -y clean all
 /sbin/swapoff -a
 /sbin/mkswap /dev/mapper/vg_vagrantcentos-lv_swap
