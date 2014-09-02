@@ -33,7 +33,7 @@ cp /etc/resolv.conf /mnt/sysimage/etc/resolv.conf
 /bin/cat << EOF > /etc/sudoers.d/wheel
 Defaults:%wheel env_keep += "SSH_AUTH_SOCK"
 Defaults:%wheel !requiretty
-%wheel ALL=NOPASSWD: ALL
+%wheel ALL=(ALL) NOPASSWD: ALL
 EOF
 /bin/chmod 0440 /etc/sudoers.d/wheel
 /bin/mkdir /mnt/vbox
