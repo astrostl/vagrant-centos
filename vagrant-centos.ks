@@ -29,7 +29,7 @@ cp /etc/resolv.conf /mnt/sysimage/etc/resolv.conf
 %end
 
 %post
-/usr/bin/yum -y install sudo gcc "kernel-devel-$(uname -r)" make perl rubygems ruby-devel
+/usr/bin/yum -y install sudo gcc "kernel-devel-$(uname -r)" make perl
 /bin/cat << EOF > /etc/sudoers.d/wheel
 Defaults:%wheel env_keep += "SSH_AUTH_SOCK"
 Defaults:%wheel !requiretty
@@ -41,9 +41,9 @@ EOF
 /mnt/vbox/VBoxLinuxAdditions.run
 /bin/umount /mnt/vbox
 /bin/rmdir /mnt/vbox
-/usr/bin/gem install --no-ri --no-rdoc puppet
-/usr/sbin/groupadd -r puppet
-/usr/bin/gem install --no-ri --no-rdoc chef
+/bin/rpm -i https://yum.puppetlabs.com/puppetlabs-release-pc1-el-6.noarch.rpm
+/usr/bin/yum -y install puppet-agent
+/bin/rpm -i https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-12.6.0-1.el6.x86_64.rpm
 /bin/mkdir /home/vagrant/.ssh
 /bin/chmod 700 /home/vagrant/.ssh
 /usr/bin/curl -L -o /home/vagrant/.ssh/id_rsa https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant
@@ -59,4 +59,5 @@ EOF
 /bin/rm -f /boot/EMPTY
 /bin/dd if=/dev/zero of=/EMPTY bs=1M
 /bin/rm -f /EMPTY
+/bin/sync
 %end
