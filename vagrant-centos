@@ -19,7 +19,7 @@ checkiso "$vc_guestiso"
 VBoxManage -v &> /dev/null || { echo "ERROR: VBoxManage not in path!"; exit 1; }
 
 VBoxManage createvm --name "$vc_basebox" --register
-VBoxManage modifyvm "$vc_basebox" --ostype RedHat_64 --memory 512 --vram 12 --rtcuseutc on --ioapic on
+VBoxManage modifyvm "$vc_basebox" --ostype RedHat_64 --memory 512 --vram 16 --rtcuseutc on --ioapic on --largepages off --paravirtprovider legacy --boot1 disk --boot2 dvd --boot3 none --boot4 none
 VBoxManage storagectl "$vc_basebox" --name ide0 --add ide
 VBoxManage storageattach "$vc_basebox" --storagectl ide0 --device 0 --port 0 --type dvddrive --medium "$vc_osiso"
 VBoxManage storageattach "$vc_basebox" --storagectl ide0 --device 0 --port 1 --type dvddrive --medium "$vc_guestiso"
@@ -29,7 +29,7 @@ VBoxManage storageattach "$vc_basebox" --storagectl sata0 --port 0 --type hdd --
 VBoxManage modifyvm "$vc_basebox" --nic1 nat
 VBoxManage startvm "$vc_basebox"
 
-ruby -rsocket -e 'puts "Kickstart URL: ks=http://" + IPSocket.getaddress(Socket.gethostname) + ":8000/vagrant-centos.ks"'
+ruby -rsocket -e 'puts "Kickstart URL: ks=http://" + Socket.ip_address_list.find { |ai| ai.ipv4? && !ai.ipv4_loopback? }.ip_address + ":8000/vagrant-centos.ks"'
 ruby -rwebrick -e 's=WEBrick::HTTPServer.new(:Port=>8000,:DocumentRoot=>".");trap("INT") { s.shutdown }; s.start'
 
 vagrant package --base "$vc_basebox" --output "${vc_basebox}.box"
