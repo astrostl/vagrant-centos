@@ -8,7 +8,7 @@ rootpw vagrant
 firewall --disabled
 auth --enableshadow --passalgo=sha512
 selinux --disabled
-timezone America/Chicago --isUtc --nontp
+timezone UTC --isUtc --nontp
 ignoredisk --only-use=sda
 bootloader --append=" crashkernel=auto" --location=mbr --boot-drive=sda
 autopart --type=lvm

@@ -8,7 +8,7 @@ rootpw vagrant
 firewall --disabled
 authconfig --enableshadow --passalgo=sha512
 selinux --disabled
-timezone --utc America/Chicago
+timezone --utc UTC
 zerombr
 clearpart --all
 part /boot --fstype=ext4 --size=512
