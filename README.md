@@ -1,7 +1,7 @@
 vagrant-centos
 ==============
 
-Want a CentOS base box for Vagrant? Maybe a custom one? Don't want to download something untrusted?
+Want a CentOS base box for Vagrant? Maybe a custom one? Don't want to download something untrusted? This will fire up a VirtualBox VM and a Ruby-based web server for hosting Kickstart automated installation scripts. Sane and minimal defaults are used, and it's easy to customize while learning about your tooling along the way.
 
 Create your own minimal CentOS base box for Vagrant in a few simple steps:
 
