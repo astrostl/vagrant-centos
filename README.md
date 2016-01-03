@@ -7,7 +7,7 @@ Create your own minimal CentOS base box for Vagrant in a few simple steps:
 
 1. download a CentOS 6 or 7 x64 minimal ISO from your favorite mirror
 2. run `bash vagrant-centos majorversion [minorversion]` (1) to create/start the VM and mini web server
-3. hit TAB at the CentOS menu, append ` ks=http://HOSTIP:8000/vagrant-centos-MAJORVERSION.ks` (2) (3), and hit ENTER
+3. hit TAB at the CentOS menu and append ` ks=http://HOSTIP:8000/vagrant-centos-MAJORVERSION.ks` (2) (3)
 4. CTRL-C the web server **AFTER** the VM has automatically shut down, then wait for it to package
 5. run `vagrant box add vagrant-centos-VERSION.box --name YOURNAME` to register the box
 
