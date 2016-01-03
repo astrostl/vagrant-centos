@@ -44,6 +44,9 @@ EOF
 /bin/rpm -i https://yum.puppetlabs.com/puppetlabs-release-pc1-el-6.noarch.rpm
 /usr/bin/yum -y install puppet-agent
 /bin/rpm -i https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-12.6.0-1.el6.x86_64.rpm
+/bin/rpm -i https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+/bin/yum -y install ansible
+/bin/rpm -e epel-release
 /bin/mkdir /home/vagrant/.ssh
 /bin/chmod 700 /home/vagrant/.ssh
 /usr/bin/curl -L -o /home/vagrant/.ssh/id_rsa https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant
