@@ -41,7 +41,7 @@ EOF
 /usr/bin/curl -L -o /home/vagrant/.ssh/id_rsa https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant
 /usr/bin/curl -L -o /home/vagrant/.ssh/authorized_keys https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub
 /bin/chown -R vagrant:vagrant /home/vagrant/.ssh
-/bin/chmod 0400 /home/vagrant/.ssh/*
+/bin/chmod 0600 /home/vagrant/.ssh/*
 /bin/echo 'UseDNS no' >> /etc/ssh/sshd_config
 /bin/echo '127.0.0.1   vagrant-centos-6.vagrantup.com' >> /etc/hosts
 /usr/bin/yum -y clean all
@@ -51,4 +51,5 @@ EOF
 /bin/rm -f /boot/EMPTY
 /bin/dd if=/dev/zero of=/EMPTY bs=1M
 /bin/rm -f /EMPTY
+/bin/sync
 %end
