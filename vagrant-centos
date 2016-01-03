@@ -1,10 +1,16 @@
 #!/bin/bash
-(( $# < 2 )) && { echo "usage: $0 majorversion minorversion"; exit 1; }
+(( $# < 1 )) && { echo "usage: $0 majorversion [minorversion]"; exit 1; }
 
-vc_osiso="${HOME}/Downloads/CentOS-${1}.${2}-x86_64-minimal.iso"
+if [[ $2 ]]; then
+  vc_osiso="${HOME}/Downloads/CentOS-${1}.${2}-x86_64-minimal.iso"
+  vc_basebox="vagrant-centos-${1}-${2}"
+else
+  vc_osiso="${HOME}/Downloads/CentOS-${1}-x86_64-Minimal.iso"
+  vc_basebox="vagrant-centos-${1}"
+fi
 vc_guestiso='/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso'
 vc_vboxbase="${HOME}/VirtualBox VMs"
-vc_basebox="vagrant-centos-${1}-${2}"
+vc_basebox="vagrant-centos-${1}"
 vc_hddbase="${vc_vboxbase}/${vc_basebox}/${vc_basebox}"
 vc_hddfile="${vc_hddbase}.vdi"
 
@@ -28,7 +34,7 @@ VBoxManage storageattach "$vc_basebox" --storagectl IDEController --device 0 --p
 VBoxManage storageattach "$vc_basebox" --storagectl IDEController --device 0 --port 1 --type dvddrive --medium "$vc_guestiso"
 VBoxManage startvm "$vc_basebox"
 
-ruby -rsocket -e 'puts "Kickstart URL: ks=http://" + Socket.ip_address_list.find { |ai| ai.ipv4? && !ai.ipv4_loopback? }.ip_address + ":8000/vagrant-centos.ks"'
+ruby -rsocket -e 'puts "Kickstart URL: ks=http://" + Socket.ip_address_list.find { |ai| ai.ipv4? && !ai.ipv4_loopback? }.ip_address + ":8000/vagrant-centos-MAJORVERSION.ks"'
 ruby -rwebrick -e 's=WEBrick::HTTPServer.new(:Port=>8000,:DocumentRoot=>".");trap("INT") { s.shutdown }; s.start'
 
 VBoxManage modifyvm "$vc_basebox" --boot2 none
