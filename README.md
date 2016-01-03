@@ -14,6 +14,6 @@ Create your own minimal CentOS base box for Vagrant in a few simple steps:
 (2) the Kickstart URL with dynamic host IP lookup is printed to the console<br>
 (3) the Kickstart script defaults to the 'America/Chicago' time zone, which you can edit or provisioner-override
 
-That's it! Tweak away. As-is, it only adds necessary packages for Vagrant, VirtualBox, and Puppet/Chef.
+That's it! Tweak away. As-is, it only adds necessary packages for Vagrant, VirtualBox, and Puppet/Chef/Ansible.
 
-Notes: 64-bit VM, 512MB of RAM, 1GB of swap, LVM partitions, 'wheel' group, no SELinux, no firewall
+Notes: 64-bit VM, 512MB of RAM, 1GB of swap, 40GB of LVM HDD, 'wheel' group, no SELinux, no firewall
